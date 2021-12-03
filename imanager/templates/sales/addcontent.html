@@ -1,0 +1,81 @@
+{% load widget_tweaks %}
+{% load static %}
+
+<script>
+    $(document).ready(function(){
+        $("#submit").on('click',function() {
+          //alert($("#itemid").find("option:selected").text()+' clicked!');
+          var item = $("#itemid").find("option:selected").text()
+          $("#itemid3").val(item)
+         });
+    });
+  </script>
+
+
+  
+
+<div class="content-page">
+    <div class="container-fluid add-form-list">
+       <div class="row">
+           <div class="col-sm-12">
+               <div class="card">
+                   <div class="card-header d-flex justify-content-between">
+                       <div class="header-title">
+                           <h4 class="card-title">Item Requisition</h4>
+                       </div>
+                   </div>
+                   <div class="card-body">
+                       <form action="" data-toggle="validator" method="POST">
+                           {% csrf_token %}
+                           <div class="row">
+                               <div class="col-md-6">
+                                    <div class="form-group">
+                                       <label>Category *</label>    
+                                       <select name="category" id='categoryid' class=" form-control" data-style="py-0" required>
+                                        <option selected="" disabled="" value="">Select Category</option>
+                                        {% for cat in cats %}
+                                           <option value='{{ cat.name}}'>{{ cat.name}}</option>
+                                           {% endfor %}
+                                       </select>
+                                   </div>
+                               </div>  
+                               <div class="col-md-6">                      
+                                <div class="form-group">
+                                    <label>Item *</label>    
+                                    <select name="item" id='itemid' class=" form-control" data-style="py-0" required>
+                                     <option selected=""  value="">Select Item</option>
+                                     {% for cat in items %}
+                                        <option value='{{ cat.category}}'>{{ cat.name}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <input type="hidden" name="name" id="itemid3">
+                               </div>    
+                        
+                               <div class="col-md-6">                                    
+                                   <div class="form-group">
+                                       <label>Quantity *</label>
+                                       <input name='quantity'  type="number" class="form-control" placeholder="Enter Quantity" required>
+                                
+                                       <div class="help-block with-errors"></div>
+                                   </div>
+                               </div>
+                         
+                           </div>                            
+                           <button type="submit" id='submit' class="btn btn-primary mr-2">Submit</button>
+                           <button type="reset" class="btn btn-danger">Reset</button>
+                       </form>
+                   </div>
+               </div>
+           </div>
+       </div>
+       <!-- Page end  -->
+   </div>
+     </div>
+     <input type="text" name="" value='' id="textid">
+<script>
+    var text =  $('#itemid :selected').text();
+
+   
+</script>
+

@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %}
+
+<!-- Page Content Start -->
+{% block content %}
+
+<!-- Side bar Start -->
+{% include "base/sidebar.html" %}
+<!-- Side Bar end -->
+
+<!-- NAvbar Start -->
+{% include "base/navbar.html" %}
+<!-- NAvbar end -->
+
+<!-- New Order Modal Start -->
+{% include "base/order-modal.html" %}
+<!-- New Order Modal End -->
+
+{% include "dashboard/content.html" %}
+
+{% include "base/footer.html" %}
+
+{% endblock content %}
+<!-- Page Content End -->

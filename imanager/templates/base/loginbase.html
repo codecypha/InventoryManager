@@ -1,0 +1,76 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>Inventory Manaager</title>
+      
+      <!-- Favicon -->
+      <link rel="shortcut icon" href="{%  static  'assets/images/favicon.ico' %}" />
+      <link rel="stylesheet" href="{%  static  'assets/css/backend-plugin.min.css' %}">
+    </head>
+
+
+  <body class="  ">
+    <!-- loader Start -->
+    <div id="loading">
+          <div id="loading-center">
+          </div>
+    </div>
+    <!-- loader END -->
+    <!-- Wrapper Start -->
+    <div class="wrapper">
+
+
+       <!-- Side bar Start -->
+
+       {% block sidebar %}
+        
+        {% endblock sidebar %}
+           <!-- Side Bar end -->
+
+        <!-- NAvbar Start -->
+    
+        {% block navbar %}
+        
+        {% endblock navbar %}
+        <!-- NAvbar end -->
+
+
+
+        <!-- New Order Modal Start -->
+        {% block ordermodal %}
+      
+        {% endblock ordermodal %}
+       
+      <!-- New Order Modal End -->
+      
+
+ 
+      <!-- Page Content Start -->
+
+      {% block content %}
+        
+      {% endblock content %}
+    <!-- Page Content End -->
+
+    </div>
+    <!-- Wrapper End-->
+
+ <!-- Footer Start-->
+ {% block footer %}
+        
+ {% endblock footer %}
+ <!-- Footer End-->
+
+    <!-- Backend Bundle JavaScript -->
+    <script src="{%  static  'assets/js/backend-bundle.min.js' %}"></script>
+
+    <!-- app JavaScript -->
+    <script src="{%  static  'assets/js/app.js' %}"></script>
+
+
+  </body>
+</html>

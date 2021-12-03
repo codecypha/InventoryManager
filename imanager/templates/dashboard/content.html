@@ -1,0 +1,228 @@
+{% load static %}
+{% load humanize %}
+
+<div class="content-page">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card card-transparent card-block card-stretch card-height border-none">
+                    <div class="card-body p-0 mt-lg-2 mt-0">
+                        {% if cur_time < 12 %} <h3 class="mb-3">Hi {{ request.user }}, Good Morning</h3>
+                            {% elif cur_time >= 12 and cur_time <= 18 %} <h3 class="mb-3">Hi {{ request.user }}, Good
+                                Afternoon</h3>
+                                {% else %}
+                                <h3 class="mb-3">Hi {{ request.user }}, Good Evening</h3>
+                                {% endif %}
+
+
+                                <p class="mb-0 mr-4">Your dashboard gives you views of key performance or business
+                                    process.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="row">
+                    <div class="col-lg-6 col-md-4">
+                        <div class="card card-block card-stretch card-height">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-4 card-total-sale">
+                                    <div class="icon iq-icon-box-2 bg-danger-light">
+                                        <img src="{%  static  'assets/images/product/1.png' %}" class="img-fluid"
+                                            alt="image">
+                                    </div>
+                                    <div>
+                                        <p class="mb-2">Out of Stock Items</p>
+                                        <h4>{{no_stock}}</h4>
+                                    </div>
+                                </div>
+                                <div class="iq-progress-bar mt-2">
+                                    <span class="bg-danger iq-progress progress-1" data-percent="100">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-4">
+                        <div class="card card-block card-stretch card-height">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-4 card-total-sale">
+                                    <div class="icon iq-icon-box-2 bg-warning-light">
+                                        <img src="{%  static  'assets/images/product/1.png' %}" class="img-fluid"
+                                            alt="image">
+                                    </div>
+                                    <div>
+                                        <p class="mb-2">Low Stock Items</p>
+                                        <h4>{{low_stock}}</h4>
+                                    </div>
+                                </div>
+                                <div class="iq-progress-bar mt-2">
+                                    <span class="bg-warning iq-progress progress-1" data-percent="100">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-lg-4 col-md-4">
+                        <div class="card card-block card-stretch card-height">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-4 card-total-sale">
+                                    <div class="icon iq-icon-box-2 bg-danger-light">
+                                        <img src="{%  static  'assets/images/product/1.png' %}" class="img-fluid"
+                                            alt="image">
+                                    </div>
+                                    <div>
+                                        <p class="mb-2">Zero Stock Items</p>
+                                        <h4>0</h4>
+                                    </div>
+                                </div>
+                                <div class="iq-progress-bar mt-2">
+                                    <span class="bg-danger iq-progress progress-1" data-percent="100">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4">
+                        <div class="card card-block card-stretch card-height">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-4 card-total-sale">
+                                    <div class="icon iq-icon-box-2 bg-info-light">
+                                        <img src="{%  static  'assets/images/product/1.png' %}" class="img-fluid"
+                                            alt="image">
+                                    </div>
+                                    <div>
+                                        <p class="mb-2">Total Items</p>
+                                        <h4>{{items_count}}</h4>
+                                    </div>
+                                </div>
+                                <div class="iq-progress-bar mt-2">
+                                    <span class="bg-info iq-progress progress-1" data-percent="100">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        <div class="card card-block card-stretch card-height">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-4 card-total-sale">
+                                    <div class="icon iq-icon-box-2 bg-info-light">
+                                        <img src="{%  static  'assets/images/product/2.png' %}" class="img-fluid"
+                                            alt="image">
+                                    </div>
+                                    <div>
+                                        <p class="mb-2">Inventory Amount</p>
+                                        <h4>{{total_amount|floatformat:2|intcomma}}</h4>
+                                    </div>
+                                </div>
+                                <div class="iq-progress-bar mt-2">
+                                    <span class="bg-info iq-progress progress-1" data-percent="100">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        <div class="card card-block card-stretch card-height">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-4 card-total-sale">
+                                    <div class="icon iq-icon-box-2 bg-success-light">
+                                        <img src="{%  static  'assets/images/product/3.png' %}" class="img-fluid"
+                                            alt="image">
+                                    </div>
+                                    <div>
+                                        <p class="mb-2">Total Request</p>
+                                        <h4>{{itemsrequest_count}}</h4>
+                                    </div>
+                                </div>
+                                <div class="iq-progress-bar mt-2">
+                                    <span class="bg-success iq-progress progress-1" data-percent="100">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-8 col-md-4">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between">
+                                <div class="header-title">
+                                    <h6 class="card-title">Top 10 requested items</h6>
+                                </div>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <!-- <th scope="col">#</th> -->
+                                            <th scope="col">Item</th>
+                                            <th scope="col">Quantity</th>
+                                            <th scope="col">Unit Price</th>
+                                            <th scope="col">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for list in itemsrequest %}
+                                        <tr>
+                                            <!-- <th scope="row">{{list.id}}</th> -->
+                                            <td>{{list.item_name}}</td>
+                                            <td>{{list.quantity_requested}}</td>
+                                            <td>{{list.unit_price|floatformat:2|intcomma}}</td>
+                                            <td>{{list.total|floatformat:2|intcomma}}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        <div class="card card-block card-stretch card-height">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-4 card-total-sale">
+                                    <div class="icon iq-icon-box-2 bg-info-light">
+                                        <img src="{%  static  'assets/images/product/2.png' %}" class="img-fluid"
+                                            alt="image">
+                                    </div>
+                                    <div>
+                                        <p class="mb-2">Pending Inventory Manager Approval</p>
+                                        <h4>{{pending_manager}}</h4>
+                                    </div>
+                                </div>
+                                <div class="iq-progress-bar mt-2">
+                                    <span class="bg-warning iq-progress progress-1" data-percent="100">
+                                    </span>
+                                </div>
+                                <div class="d-flex align-items-center mb-4 card-total-sale">
+                                    <div class="icon iq-icon-box-2 bg-info-light">
+                                        <img src="{%  static  'assets/images/product/2.png' %}" class="img-fluid"
+                                            alt="image">
+                                    </div>
+                                    <div>
+                                        <p class="mb-2">Pending Head Corporate Approval</p>
+                                        <h4>{{pending_head}}</h4>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </div>
+        <!-- Page end  -->
+    </div>
+</div>
